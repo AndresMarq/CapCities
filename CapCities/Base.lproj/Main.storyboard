@@ -26,10 +26,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="Zyk-0v-QXy" secondAttribute="bottom" constant="-34" id="D33-t0-8mT"/>
-                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-55" id="Fdh-ng-7gO"/>
-                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hgp-Zg-I84"/>
-                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jFl-OQ-3uh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Zyk-0v-QXy" secondAttribute="bottom" constant="-34" id="dc4-uV-gLX"/>
+                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-55" id="ke6-LV-Oas"/>
+                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vua-jU-xOy"/>
+                            <constraint firstItem="Zyk-0v-QXy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wMD-Ll-f8R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FaT-s7-pxS"/>

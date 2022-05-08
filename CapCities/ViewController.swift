@@ -14,6 +14,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Type", style: .done, target: self, action: #selector(changeMapType))
+        
         let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympcis")
         let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.")
         let paris = Capital(title: "Paris", coordinate: CLLocationCoordinate2D(latitude: 48.8567, longitude: 2.3508), info: "Often called the City of Light.")
@@ -40,7 +42,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-        return annotationView
+        guard let pinAnnotation = annotationView as? MKPinAnnotationView else { return annotationView }
+        
+        pinAnnotation.pinTintColor = .green
+        
+        return pinAnnotation
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
@@ -51,6 +57,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         let ac = UIAlertController(title: place, message: placeinfor, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
+    @objc func changeMapType(){
+        let ac = UIAlertController(title: "Preferred Map Type", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Standard", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .standard
+        }))
+        ac.addAction(UIAlertAction(title: "Satellite", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .satellite
+        }))
+        ac.addAction(UIAlertAction(title: "Satellite Flyover", style: .default, handler: { [weak self] _ in
+            self?.mapView.mapType = .satelliteFlyover
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
 }
